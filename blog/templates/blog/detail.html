@@ -1,14 +1,17 @@
 
+
 <!doctype html>
-{% load staticfiles %}
 <html lang="en">
+{% load staticfiles %}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Sangamithra Thirugnanam</title>
+    <title>{{detail.title}}</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -43,7 +46,7 @@
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link " href="https://www.facebook.com/sangamithra.thiru">Faceook </a>
       <a class="nav-item nav-link" href="{% static 'Resume_updated.pdf' %}">Resume</a>
-      <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blogs</a>
+      <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blogs</a>
       
     </div>
   </div>
@@ -51,37 +54,13 @@
 </header>
 
 <main role="main">
+<div class="container">
+<h1 class="text-center pt-3">{{ detail.title }}</h1> 
+     <p class="text-center">{{ detail.pub_date }}</p>
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 class="jumbotron-heading">Hi I'm Sangamithra Thirugnanam</h1>
-      <p class="lead text-muted">This is my first Django Website. Do check out !!!</p>
-      <p>
-        <a href="mailto:sangthiru.st@gmail.com" class="btn btn-primary my-2">E-Mail me!</a>
-      </p>
-      <img src="{% static 'sang.jpg'%}" height=300 width=200/>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-  <h1 class="text-center pt-3">My Jobs</h1>
-    <div class="container"
-      <div class="column">
-        {% for jobs in job.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class= "card-img-top" src="{{ jobs.image.url }}"/>
-            
-            <div class="card-body">
-              <p class="card-text">{{ jobs.summary }}</p> 
-            </div>
-          </div>
-        </div>  
-      </div>
-    {% endfor %}
-    </div>
-  </div>
-
+    <img class="img-fluid" src="{{ detail.blogimage.url }}"  />
+    <br/>
+    <p>{{detail.body}}</p>
 </main>
 
 <footer class="text-muted">
