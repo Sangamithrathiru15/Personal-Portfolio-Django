@@ -65,19 +65,22 @@
 
   <div class="album py-5 bg-light">
   <h1 class="text-center pt-3">My Jobs</h1>
-    <div class="container"
+    <div class="container">
       <div class="column">
         {% for jobs in job.all %}
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img class= "card-img-top" src="{{ jobs.image.url }}"/>
+          <div class="topleft">
+            <img class= "card-img-top" src="{{ jobs.image.url }}" />
             
             <div class="card-body">
               <p class="card-text">{{ jobs.summary }}</p> 
             </div>
+            </div>
           </div>
         </div>  
       </div>
+          
     {% endfor %}
     </div>
   </div>
